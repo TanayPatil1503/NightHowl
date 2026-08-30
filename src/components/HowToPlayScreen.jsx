@@ -99,7 +99,7 @@ export const HowToPlayScreen = ({ onBack }) => {
           TOP NAV
       ========================================================= */}
 
-      <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/85 backdrop-blur-2xl">
+      {/* <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/85 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
 
           <button
@@ -142,7 +142,7 @@ export const HowToPlayScreen = ({ onBack }) => {
             Stay alive
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* =========================================================
           CONTENT

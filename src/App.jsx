@@ -80,7 +80,12 @@ function App() {
 
       {/* Game */}
       {gameState === 'game' && upgradeLevels && (
-        <ResponsiveGameCanvas onGameOver={handleGameOver} onVictory={handleVictory} upgradeLevels={upgradeLevels} />
+        <ResponsiveGameCanvas
+          onGameOver={handleGameOver}
+          onVictory={handleVictory}
+          onMainMenu={handleBackToMenu}
+          upgradeLevels={upgradeLevels}
+        />
       )}
 
       {/* Game Over */}

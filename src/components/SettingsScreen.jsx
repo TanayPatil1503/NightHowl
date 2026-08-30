@@ -129,7 +129,7 @@ export const SettingsScreen = ({ onBack }) => {
           TOP BAR
       ========================================================= */}
 
-      <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/85 backdrop-blur-2xl">
+      {/* <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/85 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
 
           <button
@@ -181,7 +181,7 @@ export const SettingsScreen = ({ onBack }) => {
             </span>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* =========================================================
           CONTENT

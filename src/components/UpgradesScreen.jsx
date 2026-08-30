@@ -106,7 +106,7 @@ export const UpgradesScreen = ({ onBack }) => {
           TOP NAV
       ========================================================= */}
 
-      <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/80 backdrop-blur-2xl">
+      {/* <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#05030d]/80 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
 
           <button
@@ -143,7 +143,7 @@ export const UpgradesScreen = ({ onBack }) => {
             </div>
           </div>
 
-          {/* Crystal balance */}
+
           <div className="flex items-center gap-2 rounded-2xl border border-purple-400/20 bg-purple-500/[0.06] px-3 py-2 shadow-[0_0_25px_rgba(168,85,247,0.08)]">
             <span className="text-base">💎</span>
 
@@ -158,7 +158,7 @@ export const UpgradesScreen = ({ onBack }) => {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* =========================================================
           CONTENT
