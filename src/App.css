@@ -1,6 +1,190 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Game styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #0f0f1e;
+  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+/* Canvas styles */
+canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Custom gradients */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 200, 0.8);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 200, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 200, 0.7);
+}
+
+/* Keep the 1200 × 800 game world fully visible at every viewport size.
+   The canvas backing store remains unchanged, so game coordinates stay stable. */
+.game-shell {
+  width: 100%;
+  height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.game-stage {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(34, 211, 238, 0.11), transparent 32%),
+    radial-gradient(circle at 82% 88%, rgba(139, 92, 246, 0.13), transparent 30%),
+    #03050c;
+}
+
+.game-canvas {
+  display: block;
+  /* 3:2 world, constrained by both laptop width and available height. */
+  width: min(1200px, calc(100vw - 2rem), calc(150dvh - 3rem));
+  height: auto;
+  max-height: calc(100dvh - 2rem);
+  aspect-ratio: 3 / 2;
+  position: relative;
+  z-index: 1;
+}
+
+.game-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  color: white;
+}
+
+@media (max-height: 760px) {
+  .game-stage {
+    padding: 0.5rem;
+  }
+
+  .game-hud .top-4 {
+    top: 0.75rem;
+  }
+
+  .game-hud .bottom-4 {
+    bottom: 0.75rem;
+  }
+}
+
+/* Compact a menu just enough for common 1366 × 768 laptops without
+   sacrificing the larger presentation on taller screens. */
+@media (max-height: 800px) and (min-width: 768px) {
+  .menu-content {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .menu-logo {
+    margin-bottom: 1rem;
+  }
+
+  .menu-logo > .relative {
+    width: 6.5rem;
+    height: 6.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-title {
+    font-size: 4.5rem;
+  }
+
+  .menu-stats {
+    margin-bottom: 1rem;
+  }
+
+  .menu-actions {
+    gap: 0.5rem;
+  }
+
+  .menu-button {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .game-hud .w-48 {
+    width: 9rem;
+  }
+
+  .game-hud .w-32 {
+    width: 6rem;
+  }
+
+  .game-hud .text-lg {
+    font-size: 0.875rem;
+  }
 }
